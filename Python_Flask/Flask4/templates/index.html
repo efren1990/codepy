@@ -1,0 +1,13 @@
+<!-- Herencia de la base del index -->
+{% extends 'base/bs_index.html' %}
+<!-- Bloque del cuerpo -->
+{% block cuerpo %}
+<!-- Para evitar repetir codigo y mostra solo los datos necesarios para cada vista
+flask permite crear funciones las cuales pueden ser llamadas cuando sea necesario
+y como salida van a tener un HRML
+ -->
+	<!-- Importar la funcin macro -->
+	{% from '_macro.html' import muestra_lista %}
+	<!-- Ejecutar la funcion pasando un valor -->
+	{{ muestra_lista('Hola desde Python y flask') }}
+{% endblock %}

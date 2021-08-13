@@ -1,0 +1,14 @@
+<!-- Para llamar una platilla base o layout es necesario heredarla en el archivo,
+	para eso se debe usar la siguiente linea
+	 -->
+{% extends "layout.html" %}
+<!-- Pasar el titulo del modulo al bloque de la plantilla layout -->
+{% block title %}Inicio{% endblock %}
+
+<!-- Para incluir el bloque de respuesta de modulo en el layout
+es necesario definir el bloque de contenido -->
+{% block content %} 
+	<!-- Contenido a mostrar -->
+	<!-- Si se recibe un diccionario se debe usar la llave para mostrar el valor -->
+	<h1>Hola {{ k_name }}</h1>
+{% endblock%}

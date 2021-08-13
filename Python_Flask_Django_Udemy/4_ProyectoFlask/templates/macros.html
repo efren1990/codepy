@@ -1,0 +1,19 @@
+<!-- 	Macros
+	Son funciones
+	Se usan para traer codigo html bajo demanda
+	son bloques que se imprimen cuando son llamadas
+	sus funciones
+ -->
+{% macro render_field(field) %}
+	<div class="fied">
+			<!-- Validar si ocurren errores -->
+			{% if field.errors %}
+				{% for error in field.errors %}
+					<div class="notification error">{{ error }}</div>
+				{% endfor %}
+			{% endif %}
+			<!-- Insertar un campo del formulario -->
+			<!-- metodo filed() -->
+			{{ field(placeholder=field.label.text) }}
+		</div>
+{% endmacro %}

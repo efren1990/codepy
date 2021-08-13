@@ -1,0 +1,17 @@
+<!-- Funcion para mostrar formularios  -->
+{% macro viewFormulario(field) %}
+	<!-- Impresion de los campos del formulario -->
+	<!-- el cual es recivido como valor en la funcion macro -->
+	<td>{{ field.label }}</td>
+	<!-- Se usa para pasar el argumento - Argumento HTML -->
+	<dd>{{ field(**kwargs)|safe }}
+	<!-- Validar si los campos tienen errores de validacion -->
+	{% if field.errors %}
+		<ul>
+			<!-- Crear una lista de errores -->
+			{% for error in field.errors %}
+				<li> {{ error }}</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+{% endmacro %}

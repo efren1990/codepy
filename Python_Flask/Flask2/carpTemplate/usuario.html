@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Usuarios</title>
+</head>
+<body>
+	<h3>Bienvenido Usuario</h3>
+	<!-- Para mostrar la variables pasadas por las url se usa doble corchete-->
+	<p> {{ nombre }} </p>
+	<p>Edad: {{ edadUs }}</p>
+	<!-- Para poder hacer condicionales con jinja2 se deben ponder entre corchetes con porcentaje -->
+	{% if edadUs > 18 %}
+		<p>Eres mayor de 18</p>
+	{% else %}
+		<p>Eres menor de 18</p>
+	{% endif %}
+	<p>Datoo fuera del if</p>
+	<!-- Trambien Se pueden trabajar bucles en jinja2 -->
+	{% for item in otros %}
+		<p>hobie: {{ item }}</p>
+	{% endfor %}
+</body>
+</html>

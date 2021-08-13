@@ -1,0 +1,17 @@
+{% extends 'layout.html '%}
+{% block body %}
+<form action="/actualizar/{{contacto[0]}}" method="POST">
+	<label>Id</label>
+	<input type="text" readonly="true" value="{{contacto[0]}}">
+	<br>
+	<label>Nombre Contacto: </label>
+	<input name="n_nom" type="text" value="{{ contacto[1] }}">
+	<br>
+	<label>Teléfono: </label>
+	<input name="n_tel" type="text" value="{{ contacto[2] }}">
+	<br>
+	<label>Email: </label>
+	<input name="n_ema" type="text" value="{{ contacto[3] }}">
+	<button type="submit">Actualizar</button>
+</form>
+{% endblock %}

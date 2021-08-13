@@ -1,0 +1,54 @@
+{% extends 'layout.html '%}
+{% block body %}
+{% with messages = get_flashed_messages() %}
+<!-- Validar si el dato a sido insertado -->
+{% if messages %}
+<!-- Si existe el mensaje recorrerlo para ver el mensaje -->
+{% for message in messages %}
+	<!-- Imprimir el mensaje enviado -->
+	<p>{{ message }}</p>
+{% endfor %}
+{% endif %}
+{% endwith %}	
+<!-- Formulario de Insercion de datos -->
+<!-- Indicando ruta de envio y metodo de envio de datos -->
+<form action="/contactos" method="POST">
+	<p>Guardar Contactos</p>
+	<input type="text" name="nombre" placeholder="Nombre Completo">
+	<input type="text" name="telefono" placeholder="Teléfono">
+	<input type="text" name="email" placeholder="Email">
+	<button type="submit">Guardar</button>
+</form>
+<!-- Tabla para listar los datos Guardados -->
+<table>
+	<!-- Campos del titulo -->
+	<thead>
+		<tr>
+			<td>Id</td>
+			<td>Nombre</td>
+			<td>Teléfono</td>
+			<td>Email</td>
+			<td>Operaciones</td>
+		</tr>
+	</thead>
+	<tbody>
+		{% for cont in liDatos%}
+			<tr>
+				<td> {{ cont[0] }} </td>
+				<td> {{ cont[1] }} </td>
+				<td> {{ cont[2] }} </td>
+				<td> {{ cont[3] }} </td>
+				<td>
+					<a href="/editar/{{cont[0]}}">Editar</a>
+					<!-- Pasar el id para eliminar el contacto -->
+					<a href="/eliminar/{{cont[0]}}">Borrar</a>
+				</td>
+			</tr>
+		{% endfor %}
+	</tbody>
+	<!-- Campos del Cuerpo de la tabla -->
+	<td>
+		
+	</td>
+</table>
+{% endblock %}

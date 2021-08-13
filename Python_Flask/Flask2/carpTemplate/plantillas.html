@@ -1,0 +1,10 @@
+<!-- Para llamar la plantilla base es necesario heredarla 
+	extends 'carpeta/archivo'
+-->
+{% extends 'base/base.html' %}
+<!-- Para poner contenido variante dentro del html base se puede incluri desde este arhcivo -->
+{% block content %}
+	<p>Nombre del usuario: </p>
+	<!-- Tambien se pueden usar las variables enviadas desde la funcion ruta -->
+	<p> {{dtNom}} </p>
+{% endblock %}

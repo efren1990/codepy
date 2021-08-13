@@ -1,0 +1,23 @@
+<!-- Extencion de la plantilla -->
+{% extends 'layout.html' %}
+<!-- Contenido del bloque a mostrar -->
+{% block content %}
+	<!-- Funcion macro para llamar formularios, pasando el formulario -->
+	{% from 'macros.html' import viewFormulario %}
+		<form method="POST">
+			<!-- Se pueden agregar clases con una coma al lado del parametros
+			del formulario -->
+			{{ viewFormulario(form.userName, class="form-control")}}
+			<br>
+			{{ viewFormulario(form.edad, class="form-control")}}
+			<br>
+			{{ viewFormulario(form.email, class="form-control")}}
+			<br>
+			{{ viewFormulario(form.comentario, class="form-control")}}
+			<br>
+			<!-- Campo vacio oculto o honeypot -->
+			{{ form.honeypot }}
+			<br>							
+			<button type="submit" class="btn btn-primary">Enviar</button>
+		</form>
+{% endblock %}

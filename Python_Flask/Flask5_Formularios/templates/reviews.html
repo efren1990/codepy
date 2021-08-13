@@ -1,0 +1,28 @@
+<!-- PAGINACIÓN -->
+<!-- Listado de comentarios -->
+<!-- Herencia de platilla -->
+{% extends 'layout.html' %}
+
+<!-- Bloque de contenido -->
+{% block content %}
+	<!-- Contenedor del listado de comentarios -->
+	<div class="container">	
+		<h2>{{ c_title }}</h2>
+		<hr>
+		<div class="container">
+			<!-- Validar si viene la variable con los datos de formulario -->
+			{% if comm %}
+				<!-- Recorrer la lista de datos -->
+				<!-- .items para hacer el objeto paginate iterable -->
+				{% for co in comm.items %}
+					<!-- Imprimir campo de la lista de datos consulta bn comentarios -->
+					<h5>Usuario: {{ co.usuario }}</h5>
+					<p>Comentario: {{ co.text }}</p>
+					<p>Fecha: {{ fd_format(co.create_date) }}</p>
+					<hr>
+				{% endfor%}
+			{% endif %}
+		</div>
+	</div>
+{% endblock %}
+<!-- Fin de bloque

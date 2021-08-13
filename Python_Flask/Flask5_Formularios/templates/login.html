@@ -1,0 +1,19 @@
+<!-- Extencion de la platilla -->
+{% extends 'layout.html' %}
+<!-- Bloque de contenido -->
+{% block content %}
+	<!-- Funcion macro para crear formulario -->
+	{% from 'macros.html' import viewFormulario %}
+	<form id="form-log" method="POST">
+		<!-- Para proteger la app de ataques sifer - csfr, es necesario por un toquen
+				el cual es un helper, como un campo oculto en el formulario
+				tipo input hidden
+		 -->
+		<input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+		{{ viewFormulario(form.username, class="form-control") }}
+		<br>
+		{{ viewFormulario(form.password, class="form-control") }}
+		<br>
+		<button type="submit" class="btn btn-primary">Ingresar</button>
+	</form>
+{% endblock %}

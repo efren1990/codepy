@@ -1,0 +1,8 @@
+<!-- Plantilla con extencion -->
+{% extends 'base/base.html' %}
+<!-- Impresion de la lista enviada desde el archivo de rutas -->
+{% block content %} <!-- Inicio de bloque -->
+	{% for item in lista %}
+		<p>Dt Lista: {{ item }}</p>
+	{% endfor %}
+{% endblock%} <!-- Fin de blocke -->

@@ -1,0 +1,13 @@
+<!-- Herencia de platilla -->
+{% extends 'layout.html' %}
+<!-- Bloque de contenido -->
+{% block content %}
+	<!-- Importar Macros -->
+	{% from 'macros.html' import viewFormulario %}
+	<form id="form-cuser" method="POST">
+		<input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+		{{ viewFormulario(form.commentario, class="form-control") }}
+		<br>
+		<button type="submit" class="btn btn-primary">Guardar Comentario</button>
+	</form>
+{% endblock %}

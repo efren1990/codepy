@@ -1,0 +1,4 @@
+Texto al comienzo por no setear el cursor, o
+Es Genial
+Super Genial
+Siempre es una Buena ocasion para estudiar Python

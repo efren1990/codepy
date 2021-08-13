@@ -1,0 +1,26 @@
+<!-- PLANTILLA BASE DE LA CUAL HEREDARAN LAS DEMAS VISTA
+	Las plantillas layout deben de contener el html
+	que se repeteria en las demas vistas de la aplicacion
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- Como el titulo en layout va a cambiar segun la vista o moulo mostrado
+			es necesario hacerlo editable para que asi sea agregado segun el modulo que
+			heredara esta plantilla, de la siguiente manera
+		-->
+	<title>{% block title %}{% endblock %}</title>
+	<!-- Los archivos css y javascript son considerados estaticos y deben
+	ser almacenados en la carpeta statics con el nombre por convencion -->
+	<link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+	<h2>Aplicacion con flask y python</h2>
+	<hr>
+<!-- 	Para que sean incrustados los bloque de contenido
+	de cada modulo es necesario definir por convencion 
+	el lugar de insercion del bloque -->
+	{% block content %} {% endblock %}
+</body>
+</html>

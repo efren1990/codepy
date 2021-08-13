@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- Los bloques a mostrar deben ir dentro de las etiquetas estipuladas por flask(jinja2) -->
+	<title>{% block title %} {% endblock %}</title>
+	<!-- Los archivos estaticos deben ser llamados en la base template -->
+	<!-- Se debe usar el helper otorgado por flask -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/estyle.css') }}">
+	<!-- Los archivos llamados desde servidores externos como jquery, bootstrap etc.... 
+		no deben llevar la nomenclatura
+	-->
+</head>
+<body>
+	<!-- Bloque del body -->
+	{% block cuerpo %}
+	{% endblock %}
+	<!-- Las imagenes deben llevar la misma nomenclatura para su llamado -->
+	<img src="{{ url_for('static', filename='assets/loritop.jpg')}}" alt="" onclick="mensaje()">
+	<footer>
+		<div class="container">
+			<div class="row">
+				<p class="copyright text-muted">&copy;Curso flask</p>
+			</div>
+		</div>
+	</footer>
+	<!-- Los archivos java script tambien son considerados estaticos -->
+	<script type="text/javascript" src="{{ url_for('static', filename='js/jsScript.js')}}"></script>
+</body>
+</html>

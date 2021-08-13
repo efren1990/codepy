@@ -1,0 +1,43 @@
+<!DOCTYPE html> <!-- ------------VISTA HTML--------------------------------------------------------------------------------------- -->
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{{ titulo }}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Hoja de estilos CDN Bootstrap 4 -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/ajax.js')}}"></script>
+</head>
+<body>
+
+	<!-- La clase .container-fluid proporciona un contenedor de ancho completo, que abarca todo el ancho de la ventana gráfica. -->
+	<div class="container-fluid">
+		<!-- Impirmir mensajes enviados con flash 
+			Es necesario usar el helpler get_flashed_message()
+			el cual regresa los mensajes enviados por el servidor
+		-->
+		<!-- La clase .container proporciona un contenedor de ancho fijo sensible -->
+		<div class="container">
+			<h3>Formularios Flask</h3>	
+			{% block content %}
+				
+			{% endblock %}
+		</div>
+		<div class="container">
+			{% with messages = get_flashed_messages() %}
+				<!-- Si tengo una lista de mensajes -->
+				{% if messages %}
+					<ul>
+						<!-- Recorrer la lista -->
+						{% for message in messages %}
+							<!-- Impirmir mensajes -->
+							<li> {{ message }}</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+			{% endwith %}
+		</div>
+	</div>
+</body>
+</html>

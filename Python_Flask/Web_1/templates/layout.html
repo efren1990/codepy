@@ -1,0 +1,46 @@
+<!--
+--------------------------------------------------------------------------------------------
+																			WEB CON FLASK
+--------------------------------------------------------------------------------------------
+"""
+# Archivo main quien contiene los elementos reutilizables por cada template llamado
+#-------------------------------------------------------------------------------------------
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title %} {% endblock %}</title>
+	<!-- Etiqueta responsive -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Hoja de estilos inicial -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+	<!-- Hoja de estilos CDN Bootstrap 4 -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+	<!-- La barra de navegacion sera utilizada en todas las secciones de la app web -->
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	  <!-- Links -->
+	  <ul class="navbar-nav">
+	    <li class="nav-item">
+	      <a class="nav-link" href="/">home</a>
+	    </li>
+	    <li class="nav-item">
+	    	<!-- Para redireccionar a rutas se puede nombrar la ruta como esta dentro de la funcion route
+	    		o tambien se puede usar el metodo url for con el nombre de la funcion de la ruta-->
+	      <a class="nav-link" href="{{ url_for('about') }}">nosotros</a>
+	    </li>
+	    <li class="nav-item">
+	      <a class="nav-link" href="{{ url_for('service') }}">servicios</a>
+	    </li>
+	  </ul>
+	</nav>
+	<br>
+	<!-- El contenido a mostrar se puede meter dentro de etiquetas html	 -->
+	<div class="container">
+		{% block content %}
+		{% endblock %}
+	</div>
+</body>
+</html>
